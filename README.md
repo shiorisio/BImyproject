@@ -1,6 +1,5 @@
 -----------------------  
 
-Name: Hikichi Shiori  
 Last Update: 2015-12-16
 
 -----------------------
@@ -50,7 +49,7 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
 ### Progress of this project
 - 2015-12-15
   - made the directory as BImyproject
-    
+
 - 2015-12-16
   - checked the overview of ncbiGenomeList
   - made the .csv file of ncbiGenomeList as ncbiGenomeList/data/overview.csv
