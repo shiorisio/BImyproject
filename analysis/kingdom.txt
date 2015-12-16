@@ -1,0 +1,5 @@
+ 420 Archaea
+7087 Bacteria
+1551 Eukaryota
+  45 Viroids
+4845 Viruses
