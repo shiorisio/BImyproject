@@ -1,6 +1,6 @@
 -----------------------  
 
-Last Update: 2015-12-16
+Last Update: 2015-12-21
 
 -----------------------
 
@@ -32,12 +32,14 @@ Data downloaded on 2015-12-09 from ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REP
     data/prok_representative_genomes.txt
     data/plasmids.txt
     data/viruses.txt
+    data/overview.csv
 
 
 ### Scripts
 
     scripts/run.sh: project program implementation
     scripts/atgc.py: GC content / GC skew check python program
+    scripts/MyBIanalysis.py: metadata count python program
 
 ### Usage
 
@@ -53,6 +55,13 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
 - 2015-12-16
   - checked the overview of ncbiGenomeList
   - made the .csv file of ncbiGenomeList as ncbiGenomeList/data/overview.csv
+
+- 2015-12-21
+  - made .csv file (data/overview_size.csv)
+        awk -F "\t" '{ print $2 "," $3 "," $4 "," $5 }' data/overview.txt > data/overview_size.csv
+  - checked the Kingdom overview of ncbiGenomeList
+  - made the python file (scripts/MyBIanalysis.py) to count number of metadata and made the bar graph (analysis/input_kingdom_count.png)
+  - scripts/MyBIanalysis.py can make bar graphs of metadata counts depending on  Bacteria(Genus) and Bacteria(Species), but we cannot make the bar graph because Bacteria data has many species. Therefore, this bar graphs should show top 10 bacteria data.
 
 ### References
 
