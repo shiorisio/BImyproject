@@ -1,6 +1,6 @@
 -----------------------  
 
-Last Update: 2015-12-21
+Last Update: 2015-12-31
 
 -----------------------
 
@@ -34,7 +34,6 @@ Data downloaded on 2015-12-09 from ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REP
     data/viruses.txt
     data/overview.csv
 
-
 ### Scripts
 
     scripts/run.sh: project program implementation
@@ -49,12 +48,10 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
     ./run.sh
 
 ### Progress of this project
-- 2015-12-15
-  - made the directory as BImyproject
-
-- 2015-12-16
-  - checked the overview of ncbiGenomeList
-  - made the .csv file of ncbiGenomeList as ncbiGenomeList/data/overview.csv
+- 2015-12-31
+  - revised scripts/MyBIanalysis.py to confirm the repeatability.
+  - The last version of scripts/MyBIanalysis.py only can check the diversity of Kingdom (analysis/input_kingdom_count.png), but this improvement also can check the diversity of bacteria (genus).
+  - The kinds of bacteria (Genus) is too much to show the result in bar graph. Therefore, analysis/input_top10_bacteria_(genus)count.png shows the top 10 bacteria data.
 
 - 2015-12-21
   - made .csv file (data/overview_size.csv)
@@ -62,6 +59,13 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
   - checked the Kingdom overview of ncbiGenomeList
   - made the python file (scripts/MyBIanalysis.py) to count number of metadata and made the bar graph (analysis/input_kingdom_count.png)
   - scripts/MyBIanalysis.py can make bar graphs of metadata counts depending on  Bacteria(Genus) and Bacteria(Species), but we cannot make the bar graph because Bacteria data has many species. Therefore, this bar graphs should show top 10 bacteria data.
+
+- 2015-12-16
+  - checked the overview of ncbiGenomeList
+  - made the .csv file of ncbiGenomeList as ncbiGenomeList/data/overview.csv
+
+- 2015-12-15
+  - made the directory as BImyproject
 
 ### References
 
