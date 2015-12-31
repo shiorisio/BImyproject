@@ -10,7 +10,7 @@ set -euo pipefail
 #cd ../scripts
 #python atgc.py
 
-cd ../../ncbiGenomeList
+cd ../
 #awk -F "\t" '{ print $2 "," $3 "," $4 "," $5 }' data/overview.txt > data/overview_size.csv
 
 echo "Kingdom"
@@ -25,4 +25,4 @@ echo $'\nBacteria (Species)'
 grep "Bacteria" data/overview.csv | cut -d, -f3,4 | sort | uniq -c
 
 cd ../BImyproject/scripts
-python MyBIanalysis.py ../../ncbiGenomeList/data/overview_size.csv
+python MyBIanalysis.py ../data/overview_size.csv

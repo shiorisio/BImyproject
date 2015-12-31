@@ -70,6 +70,12 @@ def MyBIanalysis(anInputFile):
     for row in c:
         InputGroupnameList.append([str(unicode(row[0])),row[1]])
         print str(unicode(row[0])) + ", " + str(row[1])
+    InputGroupnameList.sort(key=lambda x:(x[1]))
+    InputGroupnameList.reverse()
+
+    Top10GroupnameList = []
+    for a in range(0,10):
+        Top10GroupnameList.append(InputGroupnameList[a])
 
     def bargraphfunction(xyList):
         xList = []
@@ -83,12 +89,17 @@ def MyBIanalysis(anInputFile):
             yList.append(xyList[a][1])
         plt.bar(xList,yList,width=0.4,align="center")
         plt.ylabel("Number of metadata",fontsize=18)
-        plt.xticks(xList,xnameList,fontsize=15)
+        plt.xticks(xList,xnameList,rotation=30,fontsize='small')
         plt.yticks(fontsize=15)
 
     plt.figure('Input Kingdom count')
     plt.xlabel("Kingdom",fontsize=18)
     bargraphfunction(InputKingdomList)
+
+    fig = plt.figure('Input Top10 Bacteria (Genus) count')
+    plt.xlabel("Bacteria (Genus)",fontsize=18)
+    bargraphfunction(Top10GroupnameList)
+    fig.tight_layout()
 
     '''
     print "Kingdom"
