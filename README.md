@@ -49,6 +49,15 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
     ./run.sh
 
 ### Progress of this project
+- 2016-1-6
+  - Revised script scripts/MyBIanalysis.py to confirm the metadata count of bacteria (genus)
+        cd ../BImyproject/scripts
+        cut -f1,5-6,8 ../../ncbiGenomeList/data/prokaryotes.txt > ../../ncbiGenomeList/data/prokaryotes_r.txt
+        tr '\t' ',' <prokaryotes_r.txt> prokaryotes_r.csv
+        python MyBIanalysis.py ../../ncbiGenomeList/data/prokaryotes_r.csv
+  - Created analysis/2016-1-6/input_top10_bacteria_(genus)_count.png and genus_count_output.jpg
+  - Future works: mean/meadian GC% (genome size(Mb)) in each bacteria (genus) shows as box plots.
+
 
 - 2015-12-31
   - revised scripts/MyBIanalysis.py to confirm the repeatability.
@@ -77,6 +86,6 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
 
 ### References
 
-- Ref 1
+- Relationship between genome size and GC content for sequenced Bacterial and Archaeal genomes. http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2704378/figure/pgen-1000565-g001/
 - Ref 2
 - Ref 3

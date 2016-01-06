@@ -57,12 +57,12 @@ def MyBIanalysis(anInputFile):
             conn.execute("INSERT INTO %(table_name)s VALUES(%(ph)s)" % locals(), tuple(row))
     sqlinsert("MyBIanalysisDB", SQLdataArray)
 
-    c.execute("SELECT Kingdom,COUNT(*) FROM MyBIanalysisDB GROUP BY Kingdom;")
-    print "\n===== Input Kingdom count ====="
-    InputKingdomList = []
-    for row in c:
-        InputKingdomList.append([str(unicode(row[0])),row[1]])
-        print str(unicode(row[0])) + ", " + str(row[1])
+#    c.execute("SELECT Kingdom,COUNT(*) FROM MyBIanalysisDB GROUP BY Kingdom;")
+#    print "\n===== Input Kingdom count ====="
+#    InputKingdomList = []
+#    for row in c:
+#        InputKingdomList.append([str(unicode(row[0])),row[1]])
+#        print str(unicode(row[0])) + ", " + str(row[1])
 
     c.execute("SELECT Groupname,COUNT(*) FROM MyBIanalysisDB GROUP BY Groupname;")
     print "\n===== Input Groupname count ====="
@@ -92,9 +92,11 @@ def MyBIanalysis(anInputFile):
         plt.xticks(xList,xnameList,rotation=30,fontsize='small')
         plt.yticks(fontsize=15)
 
+    '''
     plt.figure('Input Kingdom count')
     plt.xlabel("Kingdom",fontsize=18)
     bargraphfunction(InputKingdomList)
+    '''
 
     fig = plt.figure('Input Top10 Bacteria (Genus) count')
     plt.xlabel("Bacteria (Genus)",fontsize=18)
