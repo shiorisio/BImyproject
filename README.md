@@ -1,6 +1,6 @@
 -----------------------  
 
-Last Update: 2015-12-31
+Last Update: 2016-1-13
 
 -----------------------
 
@@ -37,10 +37,14 @@ Data downloaded on 2015-12-09 from ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REP
     data/prok_representative_genomes.txt
     data/plasmids.txt
     data/viruses.txt
-    data/overview.csv
+    data/overview.csv:
+      tr '\t' ',' <overview.txt> overview.csv
     data/prokaryotes.csv
-    data/prokaryotes_r.txt
-    data/prokaryotes_r.csv    
+    data/prokaryotes_r.txt:
+      cut -f1,5-6,8 prokaryotes.txt > prokaryotes_r.txt
+    data/prokaryotes_r.csv:
+      tr '\t' ',' <prokaryotes_r.txt> prokaryotes_r.csv
+
 
 ### Scripts
 
@@ -60,6 +64,10 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
 - 2016-1-13
   - Revised script scripts/run.sh not to return error. (prokaryotes_r.txt: No such file or directory)
   - Included R program for checking GC contents in run.sh
+  - Revised R program using prokaryotes.txt
+  - For assessment of reproducibility, other student in this class (B3 Oyama) executed scripts/run.sh -> Some error is returned. (output file is output_oyama.txt)
+    - File name error -> Revised ncbiGenomeList-master to ncbiGenomeList
+    - Python module error
 
 - 2016-1-6
   - Revised script scripts/MyBIanalysis.py to confirm the metadata count of bacteria (genus)
