@@ -1,6 +1,6 @@
 # -----------------------
 
-# Last Update: 2015-12-21
+# Last Update: 2016-1-13
 
 # -----------------------
 
@@ -27,10 +27,19 @@ grep "Bacteria" data/overview.csv | cut -d, -f3,4 | sort | uniq -c
 #cd ../BImyproject/scripts
 #python MyBIanalysis.py ../data/overview_size.csv
 
-cd ../BImyproject/scripts
-cut -f1,5-6,8 ../../ncbiGenomeList/data/prokaryotes.txt > ../../ncbiGenomeList/data/prokaryotes_r.txt
+cd data/
+
+if [ ! -e prokaryotes_r.txt ]; then
+touch prokaryotes_r.txt
+cut -f1,5-6,8 prokaryotes.txt > prokaryotes_r.txt
 tr '\t' ',' <prokaryotes_r.txt> prokaryotes_r.csv
+fi
+
+cd ../../BImyproject/scripts
 python MyBIanalysis.py ../../ncbiGenomeList/data/prokaryotes_r.csv
+
+cd ../../ncbiGenomeList/
+Rscript --vanilla ../BImyproject/scripts/GCcheck.R
 
 #cd ../../ncbiGenomeList/
 #tr '\t' ',' <data/prokaryotes.txt> data/prokaryotes.csv
