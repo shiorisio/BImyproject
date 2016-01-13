@@ -4,7 +4,8 @@ citation()
 #setwd("~/projects/ncbiGenomeList")
 
 # Loading Data into R
-d <- read.delim("data/plasmids.txt", stringsAsFactors=FALSE, na.strings="-", check.names=FALSE)
+# d <- read.delim("data/plasmids.txt", stringsAsFactors=FALSE, na.strings="-", check.names=FALSE)
+d <- read.delim("data/prokaryotes.txt", stringsAsFactors=FALSE, na.strings="-", check.names=FALSE)
 
 cat("# Exploring Dataframes\n")
 dim(d)
@@ -17,17 +18,17 @@ summary(d)
 # Exploring Data Visually
 pdf(file="analysis/plot.pdf")
 par(mfcol=c(2,2))
-x <- "Size (Kb)"
+x <- "Size (Mb)"
 y <- "GC%"
 hist(d[,y], xlab = y, main = "Histogram")
 plot(d[,x], d[,y], xlab = x, ylab = y)
-g <- "Kingdom"
-barplot(table(d[,g]))
-boxplot(d[,y] ~ d[,g], ylab = y)
+# g <- "Kingdom"
+# barplot(table(d[,g]))
+# boxplot(d[,y] ~ d[,g], ylab = y)
 dev.off()
 
 # Exporting Data
-write.csv(table(d$Group, d$Kingdom), file="analysis/table.csv")
+# write.csv(table(d$Group, d$Kingdom), file="analysis/table.csv")
 
 # Print R version and packages
 sessionInfo()

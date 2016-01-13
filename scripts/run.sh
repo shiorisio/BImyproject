@@ -12,8 +12,12 @@ set -euo pipefail
 
 uname -a
 
-cd ../
+cd ../../ncbiGenomeList/
 #awk -F "\t" '{ print $2 "," $3 "," $4 "," $5 }' data/overview.txt > data/overview_size.csv
+
+if [ ! -e data/overview.csv ]; then
+tr '\t' ',' <data/overview.txt> data/overview.csv
+fi
 
 echo "Kingdom"
 #grep -v "^#" data/overview.txt | cut -f2 | sort | uniq -c > ../BImyproject/analysis/kingdom.txt
@@ -31,7 +35,7 @@ grep "Bacteria" data/overview.csv | cut -d, -f3,4 | sort | uniq -c
 
 cd data/
 
-if [ ! -e prokaryotes_r.txt ]; then
+if [ ! -e prokaryotes_r.csv ]; then
 touch prokaryotes_r.txt
 cut -f1,5-6,8 prokaryotes.txt > prokaryotes_r.txt
 tr '\t' ',' <prokaryotes_r.txt> prokaryotes_r.csv
