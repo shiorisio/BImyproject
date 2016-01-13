@@ -15,11 +15,15 @@ Project started 2015-12-15.
 
 ### Project directories
 
-      BImyproject/
+    BImyproject/
       README.md: project documentation
       data/: contains all raw and intermediate data
       scripts/: contains general project-wide scripts
-      analysis/: contains results of data analyses
+      analysis/: contains results of data analyses by python program
+
+    ncbiGenomeList/
+      data/: contains all raw and intermediate data
+      analysis/: contains results of data analyses by unix commands
 
 ### Data
 
@@ -34,12 +38,16 @@ Data downloaded on 2015-12-09 from ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REP
     data/plasmids.txt
     data/viruses.txt
     data/overview.csv
+    data/prokaryotes.csv
+    data/prokaryotes_r.txt
+    data/prokaryotes_r.csv    
 
 ### Scripts
 
     scripts/run.sh: project program implementation
     scripts/atgc.py: GC content / GC skew check python program
     scripts/MyBIanalysis.py: metadata count python program
+    scripts/GCcheck.R: GC (%) check program
 
 ### Usage
 
@@ -49,6 +57,10 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
     ./run.sh
 
 ### Progress of this project
+- 2016-1-13
+  - Revised script scripts/run.sh not to return error. (prokaryotes_r.txt: No such file or directory)
+  - Included R program for checking GC contents in run.sh
+
 - 2016-1-6
   - Revised script scripts/MyBIanalysis.py to confirm the metadata count of bacteria (genus)
         cd ../BImyproject/scripts
@@ -87,5 +99,5 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
 ### References
 
 - Relationship between genome size and GC content for sequenced Bacterial and Archaeal genomes. http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2704378/figure/pgen-1000565-g001/
-- Ref 2
+- GC content check program: https://github.com/haruosuz/ncbiGenomeList/blob/master/scripts/run.sh
 - Ref 3
