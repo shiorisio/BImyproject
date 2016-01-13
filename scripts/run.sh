@@ -10,6 +10,8 @@ set -euo pipefail
 #cd ../scripts
 #python atgc.py
 
+uname -a
+
 cd ../
 #awk -F "\t" '{ print $2 "," $3 "," $4 "," $5 }' data/overview.txt > data/overview_size.csv
 
