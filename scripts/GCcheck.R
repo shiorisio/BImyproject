@@ -6,6 +6,9 @@ citation()
 # Loading Data into R
 # d <- read.delim("data/plasmids.txt", stringsAsFactors=FALSE, na.strings="-", check.names=FALSE)
 d <- read.delim("data/prokaryotes.txt", stringsAsFactors=FALSE, na.strings="-", check.names=FALSE)
+# d <- read.delim("data/output_proteobacteria.txt", stringsAsFactors=FALSE, na.strings="-", check.names=FALSE)
+# d <- read.delim("data/output_firmicutes.txt", stringsAsFactors=FALSE, na.strings="-", check.names=FALSE)
+#d <- read.delim("data/output_actinobacteria.txt", stringsAsFactors=FALSE, na.strings="-", check.names=FALSE)
 
 cat("# Exploring Dataframes\n")
 dim(d)
