@@ -1,6 +1,6 @@
 -----------------------  
 
-Last Update: 2016-1-13
+Last Update: 2016-1-17
 
 -----------------------
 
@@ -44,7 +44,9 @@ Data downloaded on 2015-12-09 from ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REP
       cut -f1,5-6,8 prokaryotes.txt > prokaryotes_r.txt
     data/prokaryotes_r.csv:
       tr '\t' ',' <prokaryotes_r.txt> prokaryotes_r.csv
-
+    data/output_proteobacteria.txt
+    data/output_firmicutes.txt
+    data/output_actinobacteria.txt
 
 ### Scripts
 
@@ -61,6 +63,19 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
     ./run.sh
 
 ### Progress of this project
+- 2016-1-17
+  - Executed the R program as the results of top 3 bacteria data in analysis/2016-1-6/input_top10_bacteria_(genus)_count.png and genus_count_output.jpg (Proteobacteria, Firmicutes, Actinobacteria)
+  - GC (%) and Size(Mb) data of Firmicutes are extracted by the following commands.
+        NAME="Firmicutes"
+        grep -ic $NAME data/*.txt
+        grep -i $NAME data/prokaryotes.txt | cut -f6 | sort | uniq -c | sort -n
+        head -1 data/prokaryotes.txt | cut -f1,5-8,15,16,19 > ../BImyproject/data/output_firmicutes.txt
+        grep -i $NAME data/prokaryotes.txt | cut -f1,5-8,15,16,19 >> ../BImyproject/data/output_firmicutes.txt
+        head -n 10 ../BImyproject/data/output_firmicutes.txt
+  - the scatter diagram and histgram of Firmicutes are shown using the following commands
+        d <- read.delim("data/output_firmicutes.txt", stringsAsFactors=FALSE, na.strings="-", check.names=FALSE)
+
+
 - 2016-1-13
   - Revised script scripts/run.sh not to return error. (prokaryotes_r.txt: No such file or directory)
   - Included R program for checking GC contents in run.sh
