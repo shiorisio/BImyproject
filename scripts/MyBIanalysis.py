@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 
 # -----------------------
-# Last Update: 2015-12-31
+# Last Update: 2016-1-20
 # -----------------------
 
 import os,commands,csv,sqlite3
 from sys import argv
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 def help():
@@ -89,7 +91,7 @@ def MyBIanalysis(anInputFile):
             yList.append(xyList[a][1])
         plt.bar(xList,yList,width=0.4,align="center")
         plt.ylabel("Number of metadata",fontsize=18)
-        plt.xticks(xList,xnameList,rotation=30,fontsize='small')
+        plt.xticks(xList,xnameList,rotation=90,fontsize='medium')
         plt.yticks(fontsize=15)
 
     '''
@@ -98,10 +100,11 @@ def MyBIanalysis(anInputFile):
     bargraphfunction(InputKingdomList)
     '''
 
-    fig = plt.figure('Input Top10 Bacteria (Genus) count')
-    plt.xlabel("Bacteria (Genus)",fontsize=18)
+    fig = plt.figure('Input Top10 Bacteria (phylum) count')
+    plt.xlabel("Bacteria (phylum)",fontsize=18)
     bargraphfunction(Top10GroupnameList)
     fig.tight_layout()
+
 
     '''
     print "Kingdom"
@@ -117,4 +120,5 @@ if __name__=='__main__':
     if len(argv)!=2:
         help()
     MyBIanalysis(argv[1])
-    plt.show()
+    #plt.show()
+    plt.savefig("../analysis/MyBIanalysisoutput.png")
