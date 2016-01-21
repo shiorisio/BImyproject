@@ -1,6 +1,6 @@
 -----------------------  
 
-Last Update: 2016-1-17
+Last Update: 2016-1-20
 
 -----------------------
 
@@ -56,13 +56,17 @@ Data downloaded on 2015-12-09 from ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REP
     scripts/GCcheck.R: GC (%) check program
 
 ### Usage
-
+[Run environment] Max OS X 10.8.5, Python 2.7.9, R version 3.1.0
 In the BImyproject/script/ directory, we run the shell script run.sh with:  
 
     chmod a+x run.sh (consulting this process only one time)
     ./run.sh
 
 ### Progress of this project
+- 2016-1-21
+  - Revised scripts/MyBIanalysis.py to save the bargraph into analysis/ (e.g. analysis/MyBIanalysisoutput.png). (In case of the execution in server, plt.show() returned the error as analysis/2016-1-21/stderr.txt.)
+- 2016-1-20
+  - Revised the bargraph of number of metadata depending on each kinds of bacteria (phylum) (input_top10_bacteria_(phylum)_count.png)
 - 2016-1-17
   - Executed the R program as the results of top 3 bacteria data in analysis/2016-1-6/input_top10_bacteria_(genus)_count.png and genus_count_output.jpg (Proteobacteria, Firmicutes, Actinobacteria)
   - GC (%) and Size(Mb) data of Firmicutes are extracted by the following commands.
@@ -74,7 +78,6 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
         head -n 10 ../BImyproject/data/output_firmicutes.txt
   - the scatter diagram and histgram of Firmicutes are shown using the following commands
         d <- read.delim("data/output_firmicutes.txt", stringsAsFactors=FALSE, na.strings="-", check.names=FALSE)
-
 
 - 2016-1-13
   - Revised script scripts/run.sh not to return error. (prokaryotes_r.txt: No such file or directory)
