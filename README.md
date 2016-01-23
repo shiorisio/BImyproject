@@ -1,6 +1,6 @@
 -----------------------  
 
-Last Update: 2016-1-20
+Last Update: 2016-1-23
 
 -----------------------
 
@@ -63,6 +63,8 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
     ./run.sh
 
 ### Progress of this project
+- 2016-1-23
+  - Revised scripts/run.sh and scripts/MyBIanalysis.py to make the results of program execution as analysis/GCcheckoutput.pdf and analysis/MyBIanalysis.png
 - 2016-1-21
   - Revised scripts/MyBIanalysis.py to save the bargraph into analysis/ (e.g. analysis/MyBIanalysisoutput.png). (In case of the execution in server, plt.show() returned the error as analysis/2016-1-21/stderr.txt.)
 - 2016-1-20

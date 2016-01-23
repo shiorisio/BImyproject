@@ -104,6 +104,7 @@ def MyBIanalysis(anInputFile):
     plt.xlabel("Bacteria (phylum)",fontsize=18)
     bargraphfunction(Top10GroupnameList)
     fig.tight_layout()
+    fig.savefig('../analysis/MyBIanalysisoutput.png')
 
 
     '''
@@ -121,4 +122,3 @@ if __name__=='__main__':
         help()
     MyBIanalysis(argv[1])
     #plt.show()
-    plt.savefig("../analysis/MyBIanalysisoutput.png")

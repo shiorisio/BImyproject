@@ -19,7 +19,7 @@ cat("# Data Summary\n")
 summary(d)
 
 # Exploring Data Visually
-pdf(file="analysis/plot.pdf")
+pdf(file="../BImyproject/analysis/GCcheckoutput.pdf")
 par(mfcol=c(2,2))
 x <- "Size (Mb)"
 y <- "GC%"

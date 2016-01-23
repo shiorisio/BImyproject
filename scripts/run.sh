@@ -1,6 +1,6 @@
 # -----------------------
 
-# Last Update: 2016-1-13
+# Last Update: 2016-1-23
 
 # -----------------------
 
@@ -15,20 +15,16 @@ uname -a
 cd ../../ncbiGenomeList/
 #awk -F "\t" '{ print $2 "," $3 "," $4 "," $5 }' data/overview.txt > data/overview_size.csv
 
-if [ ! -e data/overview.csv ]; then
-tr '\t' ',' <data/overview.txt> data/overview.csv
-fi
+#if [ ! -e data/overview.csv ]; then
+#tr '\t' ',' <data/overview.txt> data/overview.csv
+#fi
 
-echo "Kingdom"
-#grep -v "^#" data/overview.txt | cut -f2 | sort | uniq -c > ../BImyproject/analysis/kingdom.txt
-grep -v "^#" data/overview.csv | cut -d, -f2 | sort | uniq -c | awk '{ print $0,$1 }'
-#tr '  ' ',' <../BImyproject/analysis/kingdom.txt> ../BImyproject/analysis/kingdom.csv
-echo $'\nBacteria (Genus)'
-#grep "Bacteria" data/overview.txt | cut -f3,4 | sort | uniq -c > ../BImyproject/analysis/bacteria.txt
-grep "Bacteria" data/overview.csv | cut -d, -f3 | sort | uniq -c
-#tr '  ' ',' <../BImyproject/analysis/bacteria.txt> ../BImyproject/analysis/bacteria.csv
-echo $'\nBacteria (Species)'
-grep "Bacteria" data/overview.csv | cut -d, -f3,4 | sort | uniq -c
+#echo "Kingdom"
+#grep -v "^#" data/overview.csv | cut -d, -f2 | sort | uniq -c | awk '{ print $0,$1 }'
+#echo $'\nBacteria (Phylum)'
+#grep "Bacteria" data/overview.csv | cut -d, -f3 | sort | uniq -c
+#echo $'\nBacteria (Species)'
+#grep "Bacteria" data/overview.csv | cut -d, -f3,4 | sort | uniq -c
 
 #cd ../BImyproject/scripts
 #python MyBIanalysis.py ../data/overview_size.csv
