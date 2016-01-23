@@ -7,12 +7,17 @@
 #!/bin/bash
 set -euo pipefail
 
-#cd ../scripts
-#python atgc.py
-
 uname -a
 
-cd ../../ncbiGenomeList/
+cd ../
+#python atgc.py
+
+# Downloading data
+wget -P data/ ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/prokaryotes.txt
+# Alternatively, you can use:
+#curl ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/prokaryotes.txt > data/prokaryotes.txt
+
+#cd ../../ncbiGenomeList/
 #awk -F "\t" '{ print $2 "," $3 "," $4 "," $5 }' data/overview.txt > data/overview_size.csv
 
 #if [ ! -e data/overview.csv ]; then
@@ -37,11 +42,16 @@ cut -f1,5-6,8 prokaryotes.txt > prokaryotes_r.txt
 tr '\t' ',' <prokaryotes_r.txt> prokaryotes_r.csv
 fi
 
-cd ../../BImyproject/scripts
-python MyBIanalysis.py ../../ncbiGenomeList/data/prokaryotes_r.csv
+#cd ../../BImyproject/scripts
+#python MyBIanalysis.py ../../ncbiGenomeList/data/prokaryotes_r.csv
+cd ../scripts
+python MyBIanalysis.py ../data/prokaryotes_r.csv
 
-cd ../../ncbiGenomeList/
-Rscript --vanilla ../BImyproject/scripts/GCcheck.R
+#cd ../../ncbiGenomeList/
+#Rscript --vanilla ../BImyproject/scripts/GCcheck.R
+cd ../
+Rscript --vanilla scripts/GCcheck.R
+
 
 #cd ../../ncbiGenomeList/
 #tr '\t' ',' <data/prokaryotes.txt> data/prokaryotes.csv

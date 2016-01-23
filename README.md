@@ -65,6 +65,12 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
 ### Progress of this project
 - 2016-1-23
   - Revised scripts/run.sh and scripts/MyBIanalysis.py to make the results of program execution as analysis/GCcheckoutput.pdf and analysis/MyBIanalysis.png
+  - Revised scripts/run.sh to download data/prokaryotes.txt at the point of use using the following commands. (However, the input data is too changeable to obtain the same results because ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/ is updated automatically. Therefore, we use the downloaded data on 2015-12-09 from ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/ into ../ncbiGenomeList/data/ in the lecture report (my_report.docx).)
+        # Downloading data
+        wget -P data/ ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/prokaryotes.txt
+        # Alternatively, you can use:
+        #curl ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/prokaryotes.txt > data/prokaryotes.txt
+
 - 2016-1-21
   - Revised scripts/MyBIanalysis.py to save the bargraph into analysis/ (e.g. analysis/MyBIanalysisoutput.png). (In case of the execution in server, plt.show() returned the error as analysis/2016-1-21/stderr.txt.)
 - 2016-1-20
