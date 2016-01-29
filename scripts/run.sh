@@ -44,13 +44,23 @@ fi
 
 #cd ../../BImyproject/scripts
 #python MyBIanalysis.py ../../ncbiGenomeList/data/prokaryotes_r.csv
+
+cd ../analysis
+if [ ! -e `date '+%Y-%m-%d'` ]; then
+  mkdir `date '+%Y-%m-%d'`
+fi
+
 cd ../scripts
 python MyBIanalysis.py ../data/prokaryotes_r.csv
 
 #cd ../../ncbiGenomeList/
 #Rscript --vanilla ../BImyproject/scripts/GCcheck.R
-cd ../
-Rscript --vanilla scripts/GCcheck.R
+cd ../analysis/`date '+%Y-%m-%d'`/
+Rscript --vanilla ../../scripts/GCcheck.R
+
+#cd ../analysis
+#mv GCcheckoutput.pdf $(date +%F)/
+#mv MyBIanalysisoutput.png $(date +%F)/
 
 
 #cd ../../ncbiGenomeList/

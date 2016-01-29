@@ -1,6 +1,6 @@
 -----------------------  
 
-Last Update: 2016-1-23
+Last Update: 2016-1-29
 
 -----------------------
 
@@ -56,13 +56,23 @@ Data downloaded on 2015-12-09 from ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REP
     scripts/GCcheck.R: GC (%) check program
 
 ### Usage
-[Run environment] Max OS X 10.8.5, Python 2.7.9, R version 3.1.0
+[Run environment] Max OS X 10.8.5, Python 2.7.9, R version 3.1.0  
 In the BImyproject/script/ directory, we run the shell script run.sh with:  
 
     chmod a+x run.sh (consulting this process only one time)
     ./run.sh
 
+If your run environment is Python 3.4.3, please check http://docs.python.jp/2/library/2to3.html to change Python 2 code to Python 3 code.  
+In the BImyproject/script/ directory, we run the following commands.
+
+    2to3 MyBIanalysis.py
+    2to3 atgc.py
+    bash run.sh > log.txt 2>&1 &
+
 ### Progress of this project
+- 2016-1-29
+  - Revised scripts/GCcheck.R to show the results using the same axes.
+  - Revised scripts/run.sh and scripts/MyBIanalysis.py to save the results in the directory that name is execution date.
 - 2016-1-23
   - Revised scripts/run.sh and scripts/MyBIanalysis.py to make the results of program execution as analysis/GCcheckoutput.pdf and analysis/MyBIanalysis.png
   - Revised scripts/run.sh to download data/prokaryotes.txt at the point of use using the following commands. (However, the input data is too changeable to obtain the same results because ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/ is updated automatically. Therefore, we use the downloaded data on 2015-12-09 from ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/ into ../ncbiGenomeList/data/ in the lecture report (my_report.docx).)
@@ -134,4 +144,3 @@ In the BImyproject/script/ directory, we run the shell script run.sh with:
 
 - Relationship between genome size and GC content for sequenced Bacterial and Archaeal genomes. http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2704378/figure/pgen-1000565-g001/
 - GC content check program: https://github.com/haruosuz/ncbiGenomeList/blob/master/scripts/run.sh
-- Ref 3

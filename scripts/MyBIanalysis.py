@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 # -----------------------
-# Last Update: 2016-1-20
+# Last Update: 2016-1-29
 # -----------------------
 
 import os,commands,csv,sqlite3
 from sys import argv
+from datetime import datetime as dt
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
@@ -100,11 +101,14 @@ def MyBIanalysis(anInputFile):
     bargraphfunction(InputKingdomList)
     '''
 
+    tdatetime = dt.now()
+    tstr = tdatetime.strftime('%Y-%m-%d')
+
     fig = plt.figure('Input Top10 Bacteria (phylum) count')
     plt.xlabel("Bacteria (phylum)",fontsize=18)
     bargraphfunction(Top10GroupnameList)
     fig.tight_layout()
-    fig.savefig('../analysis/MyBIanalysisoutput.png')
+    fig.savefig('../analysis/%s/MyBIanalysisoutput.png' % tstr)
 
 
     '''
